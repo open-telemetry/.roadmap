@@ -1,0 +1,27 @@
+mutation($project_id: ID!, $content_id: ID!) {
+  addProjectV2ItemById(input: {projectId: $project_id, contentId: $content_id}) {
+    item {
+      id
+      status: fieldValueByName(name: "Status") {
+        ... on ProjectV2ItemFieldSingleSelectValue {
+          name
+        }
+      }
+      startDate: fieldValueByName(name: "Start date") {
+        ... on ProjectV2ItemFieldDateValue {
+          date
+        }
+      }
+      targetDate: fieldValueByName(name: "Target date") {
+        ... on ProjectV2ItemFieldDateValue {
+          date
+        }
+      }
+      sig: fieldValueByName(name: "SIG") {
+        ... on ProjectV2ItemFieldTextValue {
+          text
+        }
+      }
+    }
+  }
+}
