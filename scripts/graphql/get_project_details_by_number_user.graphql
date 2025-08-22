@@ -1,0 +1,17 @@
+query GetUserProjectDetailsByNumber($login: String!, $project_number: Int!) {
+    user(login: $login){
+        projectV2(number: $project_number) {
+            id
+            title
+            shortDescription
+            readme
+            latestStatusUpdate: statusUpdates(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
+                nodes {
+                    status
+                    startDate
+                    targetDate
+                }
+            }
+        }
+    }
+}
