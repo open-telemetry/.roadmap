@@ -77,7 +77,7 @@ The GitHub token used to run the script needs the following permissions:
 
 * **`Repository permissions`**: Scoped to `open-telemetry/.roadmap`
     * Public repository access (included by default), required to read `sigs.yml` from `open-telemetry/community`.
-    * _Read_ access to metadata (required by efault).
+    * _Read_ access to metadata (required by default).
     * _Read_ and _Write_ access to issues, required to manage issues in this (`.roadmap`) repository.
 * **`Organization permissions`**: Read and write access to projects.
     * Required to read source projects from the `open-telemetry` organization.

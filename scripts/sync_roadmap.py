@@ -205,7 +205,7 @@ class RoadmapManager:
                 sig_name == project_item_details["sig"]["text"] if project_item_details.get("sig") else None,
             ]
         ):
-            logging.info(f"No changes to roadmap fields for item {project_item_details["id"]}")
+            logging.info(f'No changes to roadmap fields for item {project_item_details["id"]}')
             return
 
         variables = {
@@ -222,7 +222,7 @@ class RoadmapManager:
         }
 
         if self.dry_run:
-            logging.info(f"[DRY RUN] Would update fields for item {project_item_details["id"]}")
+            logging.info(f'[DRY RUN] Would update fields for item {project_item_details["id"]}')
             return
 
         query = gql(self.queries["update_project_item_fields"])
