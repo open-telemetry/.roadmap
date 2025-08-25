@@ -1,0 +1,61 @@
+mutation updateProjectV2ItemFields(
+  $projectId: ID!
+  $itemId: ID!
+  $statusFieldId: ID!
+  $statusValue: String
+  $startDateFieldId: ID!
+  $startDateValue: Date
+  $targetDateFieldId: ID!
+  $targetDateValue: Date
+  $sigFieldId: ID!
+  $sigValue: String
+) {
+  updateStatus: updateProjectV2ItemFieldValue(
+    input: {
+      projectId: $projectId
+      itemId: $itemId
+      fieldId: $statusFieldId
+      value: { singleSelectOptionId: $statusValue }
+    }
+  ) {
+    projectV2Item {
+      id
+    }
+  }
+  updateStartDate: updateProjectV2ItemFieldValue(
+    input: {
+      projectId: $projectId
+      itemId: $itemId
+      fieldId: $startDateFieldId
+      value: { date: $startDateValue }
+    }
+  ) {
+    projectV2Item {
+      id
+    }
+  }
+  updateTargetDate: updateProjectV2ItemFieldValue(
+    input: {
+      projectId: $projectId
+      itemId: $itemId
+      fieldId: $targetDateFieldId
+      value: { date: $targetDateValue }
+    }
+  ) {
+    projectV2Item {
+      id
+    }
+  }
+  updateSIG: updateProjectV2ItemFieldValue(
+    input: {
+      projectId: $projectId
+      itemId: $itemId
+      fieldId: $sigFieldId
+      value: { text: $sigValue }
+    }
+  ) {
+    projectV2Item {
+      id
+    }
+  }
+}
