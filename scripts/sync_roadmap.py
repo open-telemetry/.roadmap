@@ -227,7 +227,7 @@ class RoadmapManager:
 
         query = gql(self.queries["update_project_item_fields"])
         self.graphql_client.execute(query, variable_values=variables)
-        logging.info(f"Updated fields for item {project_item_details["id"]}.")
+        logging.info(f"Updated fields for item {project_item_details['id']}.")
 
     def _sync_project(
         self, project_details: dict, roadmap_items: list, sig_name: str, issue: "Issue | None" = None
