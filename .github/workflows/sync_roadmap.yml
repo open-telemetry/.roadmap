@@ -1,0 +1,32 @@
+name: Sync Roadmap
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - uses: actions/create-github-app-token@a8d616148505b5069dccd32f177bb87d7f39123b # v2.1.1
+        id: app-token
+        with:
+          app-id: ${{ vars.OTELBOT_ROADMAP_APP_ID }}
+          private-key: ${{ secrets.OTELBOT_ROADMAP_PRIVATE_KEY }}
+
+      - name: Run sync script
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: python scripts/sync_roadmap.py
