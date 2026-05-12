@@ -1,10 +1,10 @@
 anyio==4.10.0
 backoff==2.2.1
 certifi==2025.8.3
-cffi==1.17.1
+cffi==2.0.0
 charset-normalizer==3.4.7
 cryptography==45.0.6
-gql==3.5.3
+gql[requests]==4.0.0
 graphql-core==3.2.8
 idna==3.10
 multidict==6.6.4
